@@ -8,7 +8,7 @@ public class NextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             print("Next Level");
-            //SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);
         }
     }
 }
