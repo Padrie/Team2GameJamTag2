@@ -43,20 +43,11 @@ public class PlayerController : MonoBehaviour
         HandleInput();
         
         HandleCameraMovement();
-        
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            HandleCrawling();
-        }
     }
 
     void FixedUpdate()
     {
         HandleGravity();
-        
-        HandleWalking(walkSpeed);
-
-        
     }
 
     public void HandleInput()
