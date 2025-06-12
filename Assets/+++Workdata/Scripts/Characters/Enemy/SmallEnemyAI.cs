@@ -1,12 +1,11 @@
 
-using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class SmallEnemyAI : MonoBehaviour
 {
     [SerializeField] GameObject head;
 
@@ -26,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     int index = 0;
 
     public static event Action OnPlayerDied;
+    public static event Action OnEnemyDied;
 
     private void Start()
     {
@@ -102,6 +102,15 @@ public class EnemyAI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OnPlayerDied?.Invoke();
+        }        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.F))
+        {
+            OnEnemyDied?.Invoke();
+            Destroy(gameObject);
         }
     }
 }
