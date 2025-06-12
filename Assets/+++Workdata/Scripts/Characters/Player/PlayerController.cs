@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public float gravity = -9.81f;
     public bool isGrounded;
-    public bool isCrouching;
+    public bool isCrouching = false;
     public float groundDistance = 0.4f;
 
     [Header("Movement")]
@@ -90,12 +90,12 @@ public class PlayerController : MonoBehaviour
         
         if (isCrouching)
         {
-            animator.SetBool("Crawl" , isCrouching);
+            animator.SetBool("Crawl" , false);
             isCrouching = false;
         }
         else
         {
-            animator.SetBool("Crawl" , isCrouching);
+            animator.SetBool("Crawl" , true);
             isCrouching = true;
         }
     }
